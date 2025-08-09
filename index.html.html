@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raksha Bandhan Photo Gallery</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+            rgba(255, 245, 230, 0.95),
+            rgba(255, 245, 230, 0.95)
+          ),
+          url("https://i.ibb.co/dLSxwqF/rakhi-pattern.png");
+        background-size: 200px 200px;
+        background-repeat: repeat;
+        background-attachment: fixed;
+        color: #333;
+      }
+
+      /* Greeting Card */
+      #greetingCard {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+            rgba(255, 123, 0, 0.5),
+            rgba(255, 191, 0, 0.5)
+          ),
+          url("photo7.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        z-index: 1000;
+        opacity: 1;
+        transition: opacity 1s ease;
+      }
+
+      #greetingCard.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #greetingCard h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        animation: floatText 3s ease-in-out infinite;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      #greetingCard p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        max-width: 80%;
+      }
+
+      #greetingCard button {
+        padding: 12px 26px;
+        font-size: 1rem;
+        background: white;
+        color: #ff7b00;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      #greetingCard button:hover {
+        background: #ffe3c0;
+        transform: scale(1.05);
+      }
+
+      @keyframes floatText {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #ff9f40, #ffcc66);
+        color: white;
+        text-align: center;
+        padding: 20px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 2rem;
+        margin: 0;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Gallery */
+      .gallery {
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 30px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .photo-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .photo-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .photo-card img:hover {
+        transform: scale(1.05);
+      }
+
+      .caption {
+        padding: 12px;
+        text-align: center;
+        font-size: 1rem;
+        color: #444;
+        background: rgba(255, 250, 243, 0.9);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: linear-gradient(135deg, #ff7b00, #ffbf00);
+        color: white;
+        margin-top: 30px;
+        font-size: 0.9rem;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        #greetingCard h1 {
+          font-size: 2rem;
+        }
+        #greetingCard p {
+          font-size: 1rem;
+        }
+        .photo-card img {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery {
+          padding: 15px;
+          gap: 15px;
+        }
+        .caption {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Greeting Card -->
+    <div id="greetingCard">
+      <h1>💛 Happy Raksha Bandhan 💛</h1>
+      <p>
+        Celebrating the sacred bond of love and protection between brothers and
+        sisters. Cherish the memories forever. 💫
+      </p>
+      <button onclick="showGallery()">View Memories</button>
+    </div>
+
+    <!-- Main Content -->
+    <header>
+      <h1>💛 Raksha Bandhan Memories 💛</h1>
+    </header>
+
+    <section class="gallery" id="gallery">
+      <div class="photo-card">
+        <img src="photo1.jpg" alt="Memory 1" />
+        <div class="caption">Memory 1</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="photo3.jpg" alt="Memory 3" />
+        <div class="caption">Memory 3</div>
+      </div>
+      <div class="photo-card">
+        <img src="photo4.jpg" alt="Memory 4" />
+        <div class="caption">Memory 4</div>
+      </div>
+      <div class="photo-card">
+        <img src="photo5.jpg" alt="Memory 5" />
+        <div class="caption">Memory 5</div>
+      </div>
+      <div class="photo-card">
+        <img src="photo6.jpg" alt="Memory 6" />
+        <div class="caption">Memory 6</div>
+      </div>
+      <div class="photo-card">
+        <img src="photo7.jpg" alt="Memory 6" />
+        <div class="caption">Memory 6</div>
+      </div>
+      <div class="photo-card">
+        <img src="photo8.jpg" alt="Memory 6" />
+        <div class="caption">Memory 6</div>
+      </div>
+    </section>
+
+    <footer>&copy; 2025 Raksha Bandhan | Made with ❤️</footer>
+
+    <script>
+      function showGallery() {
+        const greeting = document.getElementById("greetingCard");
+        greeting.classList.add("fade-out");
+        setTimeout(() => {
+          greeting.style.display = "none";
+          document.getElementById("gallery").style.display = "grid";
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
