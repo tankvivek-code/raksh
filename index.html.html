@@ -31,7 +31,7 @@
             rgba(255, 191, 0, 0.5)
           ),
           url("photo7.jpg") center center no-repeat;
-        background-size: contain; /* Show full image */
+        background-size: contain;
         background-color: #ff7b00;
         display: flex;
         flex-direction: column;
@@ -111,10 +111,11 @@
         padding: 30px;
         max-width: 1200px;
         margin: auto;
+        background: transparent; /* so bg image shows */
       }
 
       .photo-card {
-        background: white;
+        background: rgba(255, 255, 255, 0.85); /* semi-transparent to see bg */
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -155,7 +156,7 @@
         font-size: 0.9rem;
       }
 
-      /* Responsive adjustments */
+      /* Mobile Fix for Image Cropping */
       @media (max-width: 600px) {
         #greetingCard h1 {
           font-size: 1.8rem;
@@ -164,7 +165,9 @@
           font-size: 1rem;
         }
         .photo-card img {
-          height: 200px;
+          height: auto; /* no cropping */
+          object-fit: contain;
+          background: #fff; /* letterbox background if needed */
         }
       }
     </style>
@@ -211,8 +214,8 @@
         <div class="caption">Memory 6</div>
       </div>
       <div class="photo-card">
-        <img src="photo8.jpg" alt="Memory 6" />
-        <div class="caption">Memory 6</div>
+        <img src="photo8.jpg" alt="Memory 7" />
+        <div class="caption">Memory 7</div>
       </div>
     </section>
 
